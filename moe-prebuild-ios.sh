@@ -19,7 +19,7 @@ rm -rf "$MOE_PREBUILTS_DIR/$MOE_PREBUILTS_TARGET_DIR"
 
 # Shared pre-build setup
 ./autogen.sh
-python generate-darwin-source-and-headers.py
+python3 generate-darwin-source-and-headers.py
 
 # Properties
 SDKS="iphoneos iphonesimulator"

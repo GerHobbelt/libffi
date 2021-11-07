@@ -2,7 +2,7 @@
 
 ./autogen.sh
 
-python generate-darwin-source-and-headers.py
+python3 generate-darwin-source-and-headers.py
 
 xcodebuild -target libffi-Mac-static -configuration Release -sdk macosx
 xcodebuild -target libffi-Mac-static -configuration Debug -sdk macosx
