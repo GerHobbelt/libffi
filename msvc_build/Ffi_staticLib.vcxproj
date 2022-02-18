@@ -701,6 +701,8 @@
     <ClCompile Include="..\src\dlmalloc.c" />
     <ClCompile Include="..\src\prep_cif.c" />
     <ClCompile Include="..\src\types.c" />
+    <ClCompile Include="..\src\tramp.c" />
+    <ClCompile Include="..\src\raw_api.c" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\aarch64\ffi.c">
