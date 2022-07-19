@@ -19,7 +19,7 @@ rm -rf "$MOE_PREBUILTS_DIR/$MOE_PREBUILTS_TARGET_DIR"
 
 # Shared pre-build setup
 ./autogen.sh
-python generate-darwin-source-and-headers.py
+python3 generate-darwin-source-and-headers.py
 
 # Properties
 SDKS="macosx"
@@ -35,5 +35,5 @@ for SDK in $SDKS; do for CONFIGURATION in $CONFIGURATIONS; do
     install"
 
     # Build
-    xcodebuild -target libffi-Mac-static -configuration $CONFIGURATION -sdk $SDK build $OTHER_ARGS
+    xcodebuild -target libffi-static-Mac -configuration $CONFIGURATION -sdk $SDK build $OTHER_ARGS
 done done

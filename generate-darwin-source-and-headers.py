@@ -33,8 +33,8 @@ class ios_simulator64_platform(Platform):
     prefix = "#ifdef __x86_64__\n\n"
     suffix = "\n\n#endif"
     src_dir = 'x86'
-    src_files = ['unix64.S', 'ffi64.c']
-    hdr_files = ['internal64.h']
+    src_files = ['unix64.S', 'ffi64.c', 'ffiw64.c', 'win64.S']
+    hdr_files = ['internal64.h', 'asmnames.h']
 
 
 class ios_device_platform(Platform):
@@ -103,8 +103,8 @@ class desktop_amd64_platform(Platform):
     prefix = "#ifdef __x86_64__\n\n"
     suffix = "\n\n#endif"
     src_dir = 'x86'
-    src_files = ['unix64.S', 'ffi64.c']
-    hdr_files = ['internal64.h']
+    src_files = ['unix64.S', 'ffi64.c', 'ffiw64.c', 'win64.S']
+    hdr_files = ['internal64.h', 'asmnames.h']
 
 
 class desktop_arm64_platform(Platform):
@@ -125,9 +125,7 @@ def mkdir_p(path):
     try:
         os.makedirs(path)
     except OSError as exc:  # Python >2.5
-        if exc.errno == errno.EEXIST:
-            pass
-        else:
+        if exc.errno != errno.EEXIST:
             raise
 
 
@@ -136,8 +134,11 @@ def move_file(src_dir, dst_dir, filename, file_suffix=None, prefix='', suffix=''
     out_filename = filename
 
     if file_suffix:
-        split_name = os.path.splitext(filename)
-        out_filename = "%s_%s%s" % (split_name[0], file_suffix, split_name[1])
+        if filename in ['internal64.h', 'asmnames.h', 'internal.h']:
+            out_filename = filename
+        else:
+            split_name = os.path.splitext(filename)
+            out_filename = "%s_%s%s" % (split_name[0], file_suffix, split_name[1])
 
     with open(os.path.join(src_dir, filename)) as in_file:
         with open(os.path.join(dst_dir, out_filename), 'w') as out_file:
@@ -177,7 +178,7 @@ def build_target(platform, platform_headers):
     mkdir_p(build_dir)
     env = dict(CC=xcrun_cmd('clang'),
                LD=xcrun_cmd('ld'),
-               CFLAGS='%s' % (platform.version_min))
+               CFLAGS='%s -fembed-bitcode' % (platform.version_min))
     working_dir = os.getcwd()
     try:
         os.chdir(build_dir)
@@ -201,7 +202,7 @@ def generate_source_and_headers(generate_osx=True, generate_ios=True, generate_t
     copy_files('include', 'darwin_common/include', pattern='*.h')
 
     if generate_ios:
-        copy_src_platform_files(ios_simulator_platform)
+        # copy_src_platform_files(ios_simulator_platform)
         copy_src_platform_files(ios_simulator64_platform)
         copy_src_platform_files(ios_device_platform)
         copy_src_platform_files(ios_device64_platform)
@@ -215,7 +216,7 @@ def generate_source_and_headers(generate_osx=True, generate_ios=True, generate_t
     platform_headers = collections.defaultdict(set)
 
     if generate_ios:
-        build_target(ios_simulator_platform, platform_headers)
+        # build_target(ios_simulator_platform, platform_headers)
         build_target(ios_simulator64_platform, platform_headers)
         build_target(ios_device_platform, platform_headers)
         build_target(ios_device64_platform, platform_headers)
