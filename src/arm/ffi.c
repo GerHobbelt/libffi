@@ -241,7 +241,7 @@ ffi_prep_cif_machdep (ffi_cif *cif)
   unsigned i;
   for (ptr = cif->arg_types, i = cif->nargs; i > 0; i--, ptr++)
   {
-    bytes += ALIGN((*ptr)->size, FFI_SIZEOF_ARG);
+    bytes += FFI_ALIGN((*ptr)->size, FFI_SIZEOF_ARG);
   }
 #endif
 
