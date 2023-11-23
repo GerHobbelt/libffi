@@ -28,7 +28,6 @@ stamp-h1
 libffi*gz
 autom4te.cache
 libffi.xcodeproj/xcuserdata
-libffi.xcodeproj/project.xcworkspace
 build_*/
 src/arm/trampoline.S
 **/texinfo.tex
