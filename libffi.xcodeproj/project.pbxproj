@@ -43,6 +43,7 @@
 		DBFA7175187F1D9B00A76262 /* ffi64_x86_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi64_x86_64.c; sourceTree = "<group>"; };
 		DBFA7176187F1D9B00A76262 /* ffi_i386.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_i386.c; sourceTree = "<group>"; };
 		F2366BA82B14356A00960392 /* libffi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libffi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2366BAF2B148DE600960392 /* libffi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libffi.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +60,7 @@
 		DB13B15B1849DEB70010F42D = {
 			isa = PBXGroup;
 			children = (
+				F2366BAF2B148DE600960392 /* libffi.h */,
 				DBFA713C187F1D8600A76262 /* darwin_common */,
 				DBFA715C187F1D9B00A76262 /* darwin_ios */,
 				DB13B1671849DF1E0010F42D /* Products */,
