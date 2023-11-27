@@ -6,55 +6,6 @@
 	objectVersion = 54;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		43B5D3F81D35473200D1E1FD /* ffiw64_x86_64.c in Sources */ = {isa = PBXBuildFile; fileRef = 43B5D3F71D35473200D1E1FD /* ffiw64_x86_64.c */; };
-		43B5D3FA1D3547CE00D1E1FD /* win64_x86_64.S in Sources */ = {isa = PBXBuildFile; fileRef = 43B5D3F91D3547CE00D1E1FD /* win64_x86_64.S */; };
-		43E9A5C71D352C1500926A8F /* sysv_i386.S in Sources */ = {isa = PBXBuildFile; fileRef = 43E9A5C51D352C1500926A8F /* sysv_i386.S */; };
-		43E9A5C81D352C1500926A8F /* unix64_x86_64.S in Sources */ = {isa = PBXBuildFile; fileRef = 43E9A5C61D352C1500926A8F /* unix64_x86_64.S */; };
-		DBFA714E187F1D8600A76262 /* closures.c in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7143187F1D8600A76262 /* closures.c */; };
-		DBFA7156187F1D8600A76262 /* prep_cif.c in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7147187F1D8600A76262 /* prep_cif.c */; };
-		DBFA7158187F1D8600A76262 /* raw_api.c in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7148187F1D8600A76262 /* raw_api.c */; };
-		DBFA715A187F1D8600A76262 /* types.c in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7149187F1D8600A76262 /* types.c */; };
-		DBFA7177187F1D9B00A76262 /* ffi_arm64.c in Sources */ = {isa = PBXBuildFile; fileRef = DBFA716C187F1D9B00A76262 /* ffi_arm64.c */; };
-		DBFA7178187F1D9B00A76262 /* sysv_arm64.S in Sources */ = {isa = PBXBuildFile; fileRef = DBFA716D187F1D9B00A76262 /* sysv_arm64.S */; };
-		DBFA7179187F1D9B00A76262 /* ffi_armv7.c in Sources */ = {isa = PBXBuildFile; fileRef = DBFA716F187F1D9B00A76262 /* ffi_armv7.c */; };
-		DBFA717A187F1D9B00A76262 /* sysv_armv7.S in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7170187F1D9B00A76262 /* sysv_armv7.S */; };
-		DBFA717E187F1D9B00A76262 /* ffi64_x86_64.c in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7175187F1D9B00A76262 /* ffi64_x86_64.c */; };
-		DBFA717F187F1D9B00A76262 /* ffi_i386.c in Sources */ = {isa = PBXBuildFile; fileRef = DBFA7176187F1D9B00A76262 /* ffi_i386.c */; };
-		FDB52FD01F614A8B00AA92E6 /* ffi.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA713E187F1D8600A76262 /* ffi.h */; };
-		FDB52FD11F614AA700AA92E6 /* ffi_arm64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA715E187F1D9B00A76262 /* ffi_arm64.h */; };
-		FDB52FD21F614AAB00AA92E6 /* ffi_armv7.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA715F187F1D9B00A76262 /* ffi_armv7.h */; };
-		FDB52FD31F614AB000AA92E6 /* ffi_i386.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA7160187F1D9B00A76262 /* ffi_i386.h */; };
-		FDB52FD41F614AB500AA92E6 /* ffi_x86_64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA7161187F1D9B00A76262 /* ffi_x86_64.h */; };
-		FDB52FD81F614B8700AA92E6 /* ffitarget.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA7141187F1D8600A76262 /* ffitarget.h */; };
-		FDB52FD91F614B8E00AA92E6 /* ffitarget_arm64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA7166187F1D9B00A76262 /* ffitarget_arm64.h */; };
-		FDB52FDA1F614B9300AA92E6 /* ffitarget_armv7.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA7167187F1D9B00A76262 /* ffitarget_armv7.h */; };
-		FDB52FDB1F614B9700AA92E6 /* ffitarget_i386.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA7168187F1D9B00A76262 /* ffitarget_i386.h */; };
-		FDB52FDD1F614BA900AA92E6 /* ffitarget_x86_64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DBFA7169187F1D9B00A76262 /* ffitarget_x86_64.h */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		DB13B1641849DF1E0010F42D /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				FDB52FD01F614A8B00AA92E6 /* ffi.h in CopyFiles */,
-				FDB52FD11F614AA700AA92E6 /* ffi_arm64.h in CopyFiles */,
-				FDB52FD21F614AAB00AA92E6 /* ffi_armv7.h in CopyFiles */,
-				FDB52FD31F614AB000AA92E6 /* ffi_i386.h in CopyFiles */,
-				FDB52FD41F614AB500AA92E6 /* ffi_x86_64.h in CopyFiles */,
-				FDB52FD81F614B8700AA92E6 /* ffitarget.h in CopyFiles */,
-				FDB52FD91F614B8E00AA92E6 /* ffitarget_arm64.h in CopyFiles */,
-				FDB52FDA1F614B9300AA92E6 /* ffitarget_armv7.h in CopyFiles */,
-				FDB52FDB1F614B9700AA92E6 /* ffitarget_i386.h in CopyFiles */,
-				FDB52FDD1F614BA900AA92E6 /* ffitarget_x86_64.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		43B5D3F71D35473200D1E1FD /* ffiw64_x86_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffiw64_x86_64.c; sourceTree = "<group>"; };
 		43B5D3F91D3547CE00D1E1FD /* win64_x86_64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = win64_x86_64.S; sourceTree = "<group>"; };
@@ -64,7 +15,6 @@
 		43E9A5DB1D35374400926A8F /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
 		43E9A5DC1D35375400926A8F /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
 		43E9A5DD1D35375400926A8F /* internal64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal64.h; sourceTree = "<group>"; };
-		DB13B1661849DF1E0010F42D /* libffi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libffi.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFA713E187F1D8600A76262 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
 		DBFA713F187F1D8600A76262 /* ffi_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
 		DBFA7140187F1D8600A76262 /* fficonfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
@@ -92,7 +42,18 @@
 		DBFA7170187F1D9B00A76262 /* sysv_armv7.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_armv7.S; sourceTree = "<group>"; };
 		DBFA7175187F1D9B00A76262 /* ffi64_x86_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi64_x86_64.c; sourceTree = "<group>"; };
 		DBFA7176187F1D9B00A76262 /* ffi_i386.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_i386.c; sourceTree = "<group>"; };
+		F2366BA82B14356A00960392 /* libffi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libffi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2366BA52B14356A00960392 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		DB13B15B1849DEB70010F42D = {
@@ -107,7 +68,7 @@
 		DB13B1671849DF1E0010F42D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB13B1661849DF1E0010F42D /* libffi.a */,
+				F2366BA82B14356A00960392 /* libffi.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,22 +180,34 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		F2366BA32B14356A00960392 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		DB13B1651849DF1E0010F42D /* libffi-iOS */ = {
+		F2366BA72B14356A00960392 /* libffi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB13B18B1849DF1E0010F42D /* Build configuration list for PBXNativeTarget "libffi-iOS" */;
+			buildConfigurationList = F2366BAE2B14356A00960392 /* Build configuration list for PBXNativeTarget "libffi" */;
 			buildPhases = (
-				DB13B1621849DF1E0010F42D /* Sources */,
-				DB13B1641849DF1E0010F42D /* CopyFiles */,
+				F2366BA32B14356A00960392 /* Headers */,
+				F2366BA42B14356A00960392 /* Sources */,
+				F2366BA52B14356A00960392 /* Frameworks */,
+				F2366BA62B14356A00960392 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "libffi-iOS";
-			productName = ffi;
-			productReference = DB13B1661849DF1E0010F42D /* libffi.a */;
-			productType = "com.apple.product-type.library.static";
+			name = libffi;
+			productName = libffi;
+			productReference = F2366BA82B14356A00960392 /* libffi.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -244,6 +217,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					F2366BA72B14356A00960392 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
 			};
 			buildConfigurationList = DB13B15F1849DEB70010F42D /* Build configuration list for PBXProject "libffi" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -258,30 +236,26 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB13B1651849DF1E0010F42D /* libffi-iOS */,
+				F2366BA72B14356A00960392 /* libffi */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		F2366BA62B14356A00960392 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		DB13B1621849DF1E0010F42D /* Sources */ = {
+		F2366BA42B14356A00960392 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43E9A5C81D352C1500926A8F /* unix64_x86_64.S in Sources */,
-				43E9A5C71D352C1500926A8F /* sysv_i386.S in Sources */,
-				DBFA717E187F1D9B00A76262 /* ffi64_x86_64.c in Sources */,
-				DBFA7179187F1D9B00A76262 /* ffi_armv7.c in Sources */,
-				DBFA714E187F1D8600A76262 /* closures.c in Sources */,
-				DBFA717A187F1D9B00A76262 /* sysv_armv7.S in Sources */,
-				43B5D3F81D35473200D1E1FD /* ffiw64_x86_64.c in Sources */,
-				DBFA7156187F1D8600A76262 /* prep_cif.c in Sources */,
-				DBFA717F187F1D9B00A76262 /* ffi_i386.c in Sources */,
-				DBFA7158187F1D8600A76262 /* raw_api.c in Sources */,
-				DBFA7178187F1D9B00A76262 /* sysv_arm64.S in Sources */,
-				DBFA715A187F1D8600A76262 /* types.c in Sources */,
-				DBFA7177187F1D9B00A76262 /* ffi_arm64.c in Sources */,
-				43B5D3FA1D3547CE00D1E1FD /* win64_x86_64.S in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,76 +344,132 @@
 			};
 			name = Release;
 		};
-		DB13B1871849DF1E0010F42D /* Debug */ = {
+		F2366BAC2B14356A00960392 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/ffi.dst;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					darwin_ios/include,
-				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_NAME = ffi;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.libffi.libffi;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		DB13B1881849DF1E0010F42D /* Release */ = {
+		F2366BAD2B14356A00960392 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/ffi.dst;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_NS_ASSERTIONS = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					darwin_ios/include,
-				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_NAME = ffi;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.libffi.libffi;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -455,11 +485,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB13B18B1849DF1E0010F42D /* Build configuration list for PBXNativeTarget "libffi-iOS" */ = {
+		F2366BAE2B14356A00960392 /* Build configuration list for PBXNativeTarget "libffi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DB13B1871849DF1E0010F42D /* Debug */,
-				DB13B1881849DF1E0010F42D /* Release */,
+				F2366BAC2B14356A00960392 /* Debug */,
+				F2366BAD2B14356A00960392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
