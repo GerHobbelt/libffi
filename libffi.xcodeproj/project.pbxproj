@@ -49,6 +49,11 @@
 		F2366C312B157F1000960392 /* sysv_arm64.S in Sources */ = {isa = PBXBuildFile; fileRef = F2366C092B157F1000960392 /* sysv_arm64.S */; };
 		F2366C322B157F1000960392 /* ffi_arm64.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366C0A2B157F1000960392 /* ffi_arm64.c */; };
 		F2366C332B15800800960392 /* libffi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BAF2B148DE600960392 /* libffi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C3B2B15A37900960392 /* libffi-iOS.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F2366C352B15A37900960392 /* libffi-iOS.debug.xcconfig */; };
+		F2366C3C2B15A37900960392 /* libffi-iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2366C372B15A37900960392 /* libffi-iOS-Info.plist */; };
+		F2366C3D2B15A37900960392 /* libffi-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366C382B15A37900960392 /* libffi-iOS-umbrella.h */; };
+		F2366C3E2B15A37900960392 /* libffi-iOS-prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = F2366C392B15A37900960392 /* libffi-iOS-prefix.pch */; };
+		F2366C3F2B15A37900960392 /* libffi-iOS.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F2366C3A2B15A37900960392 /* libffi-iOS.release.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +100,12 @@
 		F2366C082B157F1000960392 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
 		F2366C092B157F1000960392 /* sysv_arm64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_arm64.S; sourceTree = "<group>"; };
 		F2366C0A2B157F1000960392 /* ffi_arm64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_arm64.c; sourceTree = "<group>"; };
+		F2366C352B15A37900960392 /* libffi-iOS.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "libffi-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F2366C362B15A37900960392 /* libffi-iOS.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "libffi-iOS.modulemap"; sourceTree = "<group>"; };
+		F2366C372B15A37900960392 /* libffi-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "libffi-iOS-Info.plist"; sourceTree = "<group>"; };
+		F2366C382B15A37900960392 /* libffi-iOS-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libffi-iOS-umbrella.h"; sourceTree = "<group>"; };
+		F2366C392B15A37900960392 /* libffi-iOS-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libffi-iOS-prefix.pch"; sourceTree = "<group>"; };
+		F2366C3A2B15A37900960392 /* libffi-iOS.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "libffi-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +126,7 @@
 				F2366BAF2B148DE600960392 /* libffi-umbrella.h */,
 				F2366BDA2B157F1000960392 /* darwin_common */,
 				F2366BE92B157F1000960392 /* darwin_ios */,
+				F2366C342B15A37900960392 /* Supporting Files */,
 				DB13B1671849DF1E0010F42D /* Products */,
 				F2366BBF2B1494AA00960392 /* Frameworks */,
 			);
@@ -246,6 +258,19 @@
 			path = aarch64;
 			sourceTree = "<group>";
 		};
+		F2366C342B15A37900960392 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2366C352B15A37900960392 /* libffi-iOS.debug.xcconfig */,
+				F2366C362B15A37900960392 /* libffi-iOS.modulemap */,
+				F2366C372B15A37900960392 /* libffi-iOS-Info.plist */,
+				F2366C382B15A37900960392 /* libffi-iOS-umbrella.h */,
+				F2366C392B15A37900960392 /* libffi-iOS-prefix.pch */,
+				F2366C3A2B15A37900960392 /* libffi-iOS.release.xcconfig */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -253,6 +278,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2366C3E2B15A37900960392 /* libffi-iOS-prefix.pch in Headers */,
 				F2366C0F2B157F1000960392 /* ffi.h in Headers */,
 				F2366C1F2B157F1000960392 /* fficonfig_i386.h in Headers */,
 				F2366C0D2B157F1000960392 /* fficonfig.h in Headers */,
@@ -261,6 +287,7 @@
 				F2366C182B157F1000960392 /* ffitarget_arm64.h in Headers */,
 				F2366C192B157F1000960392 /* ffi_i386.h in Headers */,
 				F2366C232B157F1000960392 /* ffi_arm64.h in Headers */,
+				F2366C3D2B15A37900960392 /* libffi-iOS-umbrella.h in Headers */,
 				F2366C0B2B157F1000960392 /* ffitarget.h in Headers */,
 				F2366C0C2B157F1000960392 /* ffi_common.h in Headers */,
 				F2366C212B157F1000960392 /* fficonfig_arm64.h in Headers */,
@@ -337,6 +364,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2366C3C2B15A37900960392 /* libffi-iOS-Info.plist in Resources */,
+				F2366C3B2B15A37900960392 /* libffi-iOS.debug.xcconfig in Resources */,
+				F2366C3F2B15A37900960392 /* libffi-iOS.release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +512,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "Supporting Files/libffi-iOS-prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -489,6 +520,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Supporting Files/libffi-iOS-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -499,6 +531,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
+				MODULEMAP_FILE = "Supporting Files/libffi-iOS.modulemap";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -549,9 +582,11 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_PREFIX_HEADER = "Supporting Files/libffi-iOS-prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Supporting Files/libffi-iOS-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -562,6 +597,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
+				MODULEMAP_FILE = "Supporting Files/libffi-iOS.modulemap";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				MTL_ENABLE_DEBUG_INFO = NO;
