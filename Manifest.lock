@@ -1,0 +1,16 @@
+PODS:
+  - libffi-iOS (3.3.6-iOS)
+
+DEPENDENCIES:
+  - libffi-iOS (~> 3.3.6-iOS)
+
+SPEC REPOS:
+  trunk:
+    - libffi-iOS
+
+SPEC CHECKSUMS:
+  libffi-iOS: 2932b5feac77dc5de0eca4a72269e2c9928a26af
+
+PODFILE CHECKSUM: 05032b7d9590d192d7770ec7d962a3f2e2b03897
+
+COCOAPODS: 1.12.1

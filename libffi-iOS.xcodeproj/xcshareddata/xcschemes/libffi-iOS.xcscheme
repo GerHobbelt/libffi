@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F2366BA72B14356A00960392"
-               BuildableName = "libffi.framework"
-               BlueprintName = "libffi"
-               ReferencedContainer = "container:libffi.xcodeproj">
+               BlueprintIdentifier = "21C30B94C42FD068EB4F90A530EFDF3C"
+               BuildableName = "libffi_iOS.framework"
+               BlueprintName = "libffi-iOS"
+               ReferencedContainer = "container:libffi-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,10 +49,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F2366BA72B14356A00960392"
-            BuildableName = "libffi.framework"
-            BlueprintName = "libffi"
-            ReferencedContainer = "container:libffi.xcodeproj">
+            BlueprintIdentifier = "21C30B94C42FD068EB4F90A530EFDF3C"
+            BuildableName = "libffi_iOS.framework"
+            BlueprintName = "libffi-iOS"
+            ReferencedContainer = "container:libffi-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
