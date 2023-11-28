@@ -60,7 +60,7 @@
 		0F45EA7538F591840CC5BF7B22BB6F5E /* ffi_armv7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ffi_armv7.h; path = darwin_ios/include/ffi_armv7.h; sourceTree = "<group>"; };
 		0FD5CEECFB030E23AF158A8B34B44946 /* fficonfig_i386.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fficonfig_i386.h; path = darwin_ios/include/fficonfig_i386.h; sourceTree = "<group>"; };
 		15C24681E7B823DECC20686EAAE23123 /* internal64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = internal64.h; path = darwin_ios/src/x86/internal64.h; sourceTree = "<group>"; };
-		1C3D296BE7BAFC49DA95A93F8213E078 /* libffi-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "libffi-iOS"; path = libffi_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C3D296BE7BAFC49DA95A93F8213E078 /* libffi_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libffi_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F241C87A9F807A5883F2D93AFDE1259 /* ffi64_x86_64.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ffi64_x86_64.c; path = darwin_ios/src/x86/ffi64_x86_64.c; sourceTree = "<group>"; };
 		3469A8BF103517611A7F76F668A239FF /* closures.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = closures.c; path = darwin_common/src/closures.c; sourceTree = "<group>"; };
 		3532E90ED0AE45F172F0E7710CFCB7FB /* java_raw_api.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = java_raw_api.c; path = darwin_common/src/java_raw_api.c; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		23B12B3076DA884D4B6FD84F67C66E11 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1C3D296BE7BAFC49DA95A93F8213E078 /* libffi-iOS */,
+				1C3D296BE7BAFC49DA95A93F8213E078 /* libffi_iOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 			);
 			name = "libffi-iOS";
 			productName = libffi_iOS;
-			productReference = 1C3D296BE7BAFC49DA95A93F8213E078 /* libffi-iOS */;
+			productReference = 1C3D296BE7BAFC49DA95A93F8213E078 /* libffi_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -423,7 +423,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/libffi-iOS/libffi-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/libffi-iOS/libffi-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,7 +520,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/libffi-iOS/libffi-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/libffi-iOS/libffi-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
