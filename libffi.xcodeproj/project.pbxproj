@@ -6,44 +6,95 @@
 	objectVersion = 54;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F2366BC12B1494AA00960392 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2366BC02B1494AA00960392 /* Foundation.framework */; };
+		F2366C0B2B157F1000960392 /* ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BDC2B157F1000960392 /* ffitarget.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C0C2B157F1000960392 /* ffi_common.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BDD2B157F1000960392 /* ffi_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C0D2B157F1000960392 /* fficonfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BDE2B157F1000960392 /* fficonfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C0E2B157F1000960392 /* ffi_cfi.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BDF2B157F1000960392 /* ffi_cfi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C0F2B157F1000960392 /* ffi.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BE02B157F1000960392 /* ffi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C102B157F1000960392 /* closures.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BE22B157F1000960392 /* closures.c */; };
+		F2366C112B157F1000960392 /* prep_cif.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BE32B157F1000960392 /* prep_cif.c */; };
+		F2366C122B157F1000960392 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BE42B157F1000960392 /* debug.c */; };
+		F2366C132B157F1000960392 /* types.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BE52B157F1000960392 /* types.c */; };
+		F2366C142B157F1000960392 /* dlmalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BE62B157F1000960392 /* dlmalloc.c */; };
+		F2366C152B157F1000960392 /* java_raw_api.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BE72B157F1000960392 /* java_raw_api.c */; };
+		F2366C162B157F1000960392 /* raw_api.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BE82B157F1000960392 /* raw_api.c */; };
+		F2366C172B157F1000960392 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2366BEA2B157F1000960392 /* Empty.swift */; };
+		F2366C182B157F1000960392 /* ffitarget_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BEC2B157F1000960392 /* ffitarget_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C192B157F1000960392 /* ffi_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BED2B157F1000960392 /* ffi_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C1A2B157F1000960392 /* ffitarget_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BEE2B157F1000960392 /* ffitarget_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C1B2B157F1000960392 /* ffitarget_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BEF2B157F1000960392 /* ffitarget_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C1C2B157F1000960392 /* ffi_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BF02B157F1000960392 /* ffi_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C1D2B157F1000960392 /* ffitarget_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BF12B157F1000960392 /* ffitarget_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C1E2B157F1000960392 /* fficonfig_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BF22B157F1000960392 /* fficonfig_x86_64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C1F2B157F1000960392 /* fficonfig_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BF32B157F1000960392 /* fficonfig_i386.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C202B157F1000960392 /* fficonfig_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BF42B157F1000960392 /* fficonfig_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C212B157F1000960392 /* fficonfig_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BF52B157F1000960392 /* fficonfig_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C222B157F1000960392 /* ffi_armv7.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BF62B157F1000960392 /* ffi_armv7.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C232B157F1000960392 /* ffi_arm64.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BF72B157F1000960392 /* ffi_arm64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2366C242B157F1000960392 /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BFA2B157F1000960392 /* internal.h */; };
+		F2366C252B157F1000960392 /* sysv_i386.S in Sources */ = {isa = PBXBuildFile; fileRef = F2366BFB2B157F1000960392 /* sysv_i386.S */; };
+		F2366C262B157F1000960392 /* ffi64_x86_64.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BFC2B157F1000960392 /* ffi64_x86_64.c */; };
+		F2366C272B157F1000960392 /* ffiw64_x86_64.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366BFD2B157F1000960392 /* ffiw64_x86_64.c */; };
+		F2366C282B157F1000960392 /* win64_x86_64.S in Sources */ = {isa = PBXBuildFile; fileRef = F2366BFE2B157F1000960392 /* win64_x86_64.S */; };
+		F2366C292B157F1000960392 /* asmnames.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BFF2B157F1000960392 /* asmnames.h */; };
+		F2366C2A2B157F1000960392 /* ffi_i386.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366C002B157F1000960392 /* ffi_i386.c */; };
+		F2366C2B2B157F1000960392 /* unix64_x86_64.S in Sources */ = {isa = PBXBuildFile; fileRef = F2366C012B157F1000960392 /* unix64_x86_64.S */; };
+		F2366C2C2B157F1000960392 /* internal64.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366C022B157F1000960392 /* internal64.h */; };
+		F2366C2D2B157F1000960392 /* sysv_armv7.S in Sources */ = {isa = PBXBuildFile; fileRef = F2366C042B157F1000960392 /* sysv_armv7.S */; };
+		F2366C2E2B157F1000960392 /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366C052B157F1000960392 /* internal.h */; };
+		F2366C2F2B157F1000960392 /* ffi_armv7.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366C062B157F1000960392 /* ffi_armv7.c */; };
+		F2366C302B157F1000960392 /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366C082B157F1000960392 /* internal.h */; };
+		F2366C312B157F1000960392 /* sysv_arm64.S in Sources */ = {isa = PBXBuildFile; fileRef = F2366C092B157F1000960392 /* sysv_arm64.S */; };
+		F2366C322B157F1000960392 /* ffi_arm64.c in Sources */ = {isa = PBXBuildFile; fileRef = F2366C0A2B157F1000960392 /* ffi_arm64.c */; };
+		F2366C332B15800800960392 /* libffi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2366BAF2B148DE600960392 /* libffi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		43B5D3F71D35473200D1E1FD /* ffiw64_x86_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffiw64_x86_64.c; sourceTree = "<group>"; };
-		43B5D3F91D3547CE00D1E1FD /* win64_x86_64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = win64_x86_64.S; sourceTree = "<group>"; };
-		43E9A5C51D352C1500926A8F /* sysv_i386.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_i386.S; sourceTree = "<group>"; };
-		43E9A5C61D352C1500926A8F /* unix64_x86_64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = unix64_x86_64.S; sourceTree = "<group>"; };
-		43E9A5DA1D35373600926A8F /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
-		43E9A5DB1D35374400926A8F /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
-		43E9A5DC1D35375400926A8F /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
-		43E9A5DD1D35375400926A8F /* internal64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal64.h; sourceTree = "<group>"; };
-		DBFA713E187F1D8600A76262 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
-		DBFA713F187F1D8600A76262 /* ffi_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
-		DBFA7140187F1D8600A76262 /* fficonfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
-		DBFA7141187F1D8600A76262 /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
-		DBFA7143187F1D8600A76262 /* closures.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = closures.c; sourceTree = "<group>"; };
-		DBFA7145187F1D8600A76262 /* dlmalloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dlmalloc.c; sourceTree = "<group>"; };
-		DBFA7147187F1D8600A76262 /* prep_cif.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prep_cif.c; sourceTree = "<group>"; };
-		DBFA7148187F1D8600A76262 /* raw_api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = raw_api.c; sourceTree = "<group>"; };
-		DBFA7149187F1D8600A76262 /* types.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = types.c; sourceTree = "<group>"; };
-		DBFA715E187F1D9B00A76262 /* ffi_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
-		DBFA715F187F1D9B00A76262 /* ffi_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_armv7.h; sourceTree = "<group>"; };
-		DBFA7160187F1D9B00A76262 /* ffi_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
-		DBFA7161187F1D9B00A76262 /* ffi_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_x86_64.h; sourceTree = "<group>"; };
-		DBFA7162187F1D9B00A76262 /* fficonfig_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_arm64.h; sourceTree = "<group>"; };
-		DBFA7163187F1D9B00A76262 /* fficonfig_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_armv7.h; sourceTree = "<group>"; };
-		DBFA7164187F1D9B00A76262 /* fficonfig_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_i386.h; sourceTree = "<group>"; };
-		DBFA7165187F1D9B00A76262 /* fficonfig_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_x86_64.h; sourceTree = "<group>"; };
-		DBFA7166187F1D9B00A76262 /* ffitarget_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
-		DBFA7167187F1D9B00A76262 /* ffitarget_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_armv7.h; sourceTree = "<group>"; };
-		DBFA7168187F1D9B00A76262 /* ffitarget_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
-		DBFA7169187F1D9B00A76262 /* ffitarget_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_x86_64.h; sourceTree = "<group>"; };
-		DBFA716C187F1D9B00A76262 /* ffi_arm64.c */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.c; path = ffi_arm64.c; sourceTree = "<group>"; };
-		DBFA716D187F1D9B00A76262 /* sysv_arm64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_arm64.S; sourceTree = "<group>"; };
-		DBFA716F187F1D9B00A76262 /* ffi_armv7.c */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.c; path = ffi_armv7.c; sourceTree = "<group>"; };
-		DBFA7170187F1D9B00A76262 /* sysv_armv7.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_armv7.S; sourceTree = "<group>"; };
-		DBFA7175187F1D9B00A76262 /* ffi64_x86_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi64_x86_64.c; sourceTree = "<group>"; };
-		DBFA7176187F1D9B00A76262 /* ffi_i386.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_i386.c; sourceTree = "<group>"; };
 		F2366BA82B14356A00960392 /* libffi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libffi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2366BAF2B148DE600960392 /* libffi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libffi.h; sourceTree = "<group>"; };
+		F2366BAF2B148DE600960392 /* libffi-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libffi-umbrella.h"; sourceTree = "<group>"; };
+		F2366BC02B1494AA00960392 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F2366BDC2B157F1000960392 /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
+		F2366BDD2B157F1000960392 /* ffi_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
+		F2366BDE2B157F1000960392 /* fficonfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
+		F2366BDF2B157F1000960392 /* ffi_cfi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_cfi.h; sourceTree = "<group>"; };
+		F2366BE02B157F1000960392 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
+		F2366BE22B157F1000960392 /* closures.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = closures.c; sourceTree = "<group>"; };
+		F2366BE32B157F1000960392 /* prep_cif.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prep_cif.c; sourceTree = "<group>"; };
+		F2366BE42B157F1000960392 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
+		F2366BE52B157F1000960392 /* types.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = types.c; sourceTree = "<group>"; };
+		F2366BE62B157F1000960392 /* dlmalloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dlmalloc.c; sourceTree = "<group>"; };
+		F2366BE72B157F1000960392 /* java_raw_api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = java_raw_api.c; sourceTree = "<group>"; };
+		F2366BE82B157F1000960392 /* raw_api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = raw_api.c; sourceTree = "<group>"; };
+		F2366BEA2B157F1000960392 /* Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
+		F2366BEC2B157F1000960392 /* ffitarget_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
+		F2366BED2B157F1000960392 /* ffi_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
+		F2366BEE2B157F1000960392 /* ffitarget_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_x86_64.h; sourceTree = "<group>"; };
+		F2366BEF2B157F1000960392 /* ffitarget_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_armv7.h; sourceTree = "<group>"; };
+		F2366BF02B157F1000960392 /* ffi_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_x86_64.h; sourceTree = "<group>"; };
+		F2366BF12B157F1000960392 /* ffitarget_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
+		F2366BF22B157F1000960392 /* fficonfig_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_x86_64.h; sourceTree = "<group>"; };
+		F2366BF32B157F1000960392 /* fficonfig_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_i386.h; sourceTree = "<group>"; };
+		F2366BF42B157F1000960392 /* fficonfig_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_armv7.h; sourceTree = "<group>"; };
+		F2366BF52B157F1000960392 /* fficonfig_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_arm64.h; sourceTree = "<group>"; };
+		F2366BF62B157F1000960392 /* ffi_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_armv7.h; sourceTree = "<group>"; };
+		F2366BF72B157F1000960392 /* ffi_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
+		F2366BFA2B157F1000960392 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		F2366BFB2B157F1000960392 /* sysv_i386.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_i386.S; sourceTree = "<group>"; };
+		F2366BFC2B157F1000960392 /* ffi64_x86_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi64_x86_64.c; sourceTree = "<group>"; };
+		F2366BFD2B157F1000960392 /* ffiw64_x86_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffiw64_x86_64.c; sourceTree = "<group>"; };
+		F2366BFE2B157F1000960392 /* win64_x86_64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = win64_x86_64.S; sourceTree = "<group>"; };
+		F2366BFF2B157F1000960392 /* asmnames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asmnames.h; sourceTree = "<group>"; };
+		F2366C002B157F1000960392 /* ffi_i386.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_i386.c; sourceTree = "<group>"; };
+		F2366C012B157F1000960392 /* unix64_x86_64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = unix64_x86_64.S; sourceTree = "<group>"; };
+		F2366C022B157F1000960392 /* internal64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal64.h; sourceTree = "<group>"; };
+		F2366C042B157F1000960392 /* sysv_armv7.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_armv7.S; sourceTree = "<group>"; };
+		F2366C052B157F1000960392 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		F2366C062B157F1000960392 /* ffi_armv7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_armv7.c; sourceTree = "<group>"; };
+		F2366C082B157F1000960392 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		F2366C092B157F1000960392 /* sysv_arm64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_arm64.S; sourceTree = "<group>"; };
+		F2366C0A2B157F1000960392 /* ffi_arm64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_arm64.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2366BC12B1494AA00960392 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,10 +112,11 @@
 		DB13B15B1849DEB70010F42D = {
 			isa = PBXGroup;
 			children = (
-				F2366BAF2B148DE600960392 /* libffi.h */,
-				DBFA713C187F1D8600A76262 /* darwin_common */,
-				DBFA715C187F1D9B00A76262 /* darwin_ios */,
+				F2366BAF2B148DE600960392 /* libffi-umbrella.h */,
+				F2366BDA2B157F1000960392 /* darwin_common */,
+				F2366BE92B157F1000960392 /* darwin_ios */,
 				DB13B1671849DF1E0010F42D /* Products */,
+				F2366BBF2B1494AA00960392 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,109 +128,122 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DBFA713C187F1D8600A76262 /* darwin_common */ = {
+		F2366BBF2B1494AA00960392 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DBFA713D187F1D8600A76262 /* include */,
-				DBFA7142187F1D8600A76262 /* src */,
+				F2366BC02B1494AA00960392 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F2366BDA2B157F1000960392 /* darwin_common */ = {
+			isa = PBXGroup;
+			children = (
+				F2366BDB2B157F1000960392 /* include */,
+				F2366BE12B157F1000960392 /* src */,
 			);
 			path = darwin_common;
 			sourceTree = "<group>";
 		};
-		DBFA713D187F1D8600A76262 /* include */ = {
+		F2366BDB2B157F1000960392 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				DBFA713E187F1D8600A76262 /* ffi.h */,
-				DBFA713F187F1D8600A76262 /* ffi_common.h */,
-				DBFA7140187F1D8600A76262 /* fficonfig.h */,
-				DBFA7141187F1D8600A76262 /* ffitarget.h */,
+				F2366BDC2B157F1000960392 /* ffitarget.h */,
+				F2366BDD2B157F1000960392 /* ffi_common.h */,
+				F2366BDE2B157F1000960392 /* fficonfig.h */,
+				F2366BDF2B157F1000960392 /* ffi_cfi.h */,
+				F2366BE02B157F1000960392 /* ffi.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		DBFA7142187F1D8600A76262 /* src */ = {
+		F2366BE12B157F1000960392 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				DBFA7143187F1D8600A76262 /* closures.c */,
-				DBFA7145187F1D8600A76262 /* dlmalloc.c */,
-				DBFA7147187F1D8600A76262 /* prep_cif.c */,
-				DBFA7148187F1D8600A76262 /* raw_api.c */,
-				DBFA7149187F1D8600A76262 /* types.c */,
+				F2366BE22B157F1000960392 /* closures.c */,
+				F2366BE32B157F1000960392 /* prep_cif.c */,
+				F2366BE42B157F1000960392 /* debug.c */,
+				F2366BE52B157F1000960392 /* types.c */,
+				F2366BE62B157F1000960392 /* dlmalloc.c */,
+				F2366BE72B157F1000960392 /* java_raw_api.c */,
+				F2366BE82B157F1000960392 /* raw_api.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		DBFA715C187F1D9B00A76262 /* darwin_ios */ = {
+		F2366BE92B157F1000960392 /* darwin_ios */ = {
 			isa = PBXGroup;
 			children = (
-				DBFA715D187F1D9B00A76262 /* include */,
-				DBFA716A187F1D9B00A76262 /* src */,
+				F2366BEA2B157F1000960392 /* Empty.swift */,
+				F2366BEB2B157F1000960392 /* include */,
+				F2366BF82B157F1000960392 /* src */,
 			);
 			path = darwin_ios;
 			sourceTree = "<group>";
 		};
-		DBFA715D187F1D9B00A76262 /* include */ = {
+		F2366BEB2B157F1000960392 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				DBFA715E187F1D9B00A76262 /* ffi_arm64.h */,
-				DBFA715F187F1D9B00A76262 /* ffi_armv7.h */,
-				DBFA7160187F1D9B00A76262 /* ffi_i386.h */,
-				DBFA7161187F1D9B00A76262 /* ffi_x86_64.h */,
-				DBFA7162187F1D9B00A76262 /* fficonfig_arm64.h */,
-				DBFA7163187F1D9B00A76262 /* fficonfig_armv7.h */,
-				DBFA7164187F1D9B00A76262 /* fficonfig_i386.h */,
-				DBFA7165187F1D9B00A76262 /* fficonfig_x86_64.h */,
-				DBFA7166187F1D9B00A76262 /* ffitarget_arm64.h */,
-				DBFA7167187F1D9B00A76262 /* ffitarget_armv7.h */,
-				DBFA7168187F1D9B00A76262 /* ffitarget_i386.h */,
-				DBFA7169187F1D9B00A76262 /* ffitarget_x86_64.h */,
+				F2366BEC2B157F1000960392 /* ffitarget_arm64.h */,
+				F2366BED2B157F1000960392 /* ffi_i386.h */,
+				F2366BEE2B157F1000960392 /* ffitarget_x86_64.h */,
+				F2366BEF2B157F1000960392 /* ffitarget_armv7.h */,
+				F2366BF02B157F1000960392 /* ffi_x86_64.h */,
+				F2366BF12B157F1000960392 /* ffitarget_i386.h */,
+				F2366BF22B157F1000960392 /* fficonfig_x86_64.h */,
+				F2366BF32B157F1000960392 /* fficonfig_i386.h */,
+				F2366BF42B157F1000960392 /* fficonfig_armv7.h */,
+				F2366BF52B157F1000960392 /* fficonfig_arm64.h */,
+				F2366BF62B157F1000960392 /* ffi_armv7.h */,
+				F2366BF72B157F1000960392 /* ffi_arm64.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		DBFA716A187F1D9B00A76262 /* src */ = {
+		F2366BF82B157F1000960392 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				DBFA716B187F1D9B00A76262 /* aarch64 */,
-				DBFA716E187F1D9B00A76262 /* arm */,
-				DBFA7172187F1D9B00A76262 /* x86 */,
+				F2366BF92B157F1000960392 /* x86 */,
+				F2366C032B157F1000960392 /* arm */,
+				F2366C072B157F1000960392 /* aarch64 */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		DBFA716B187F1D9B00A76262 /* aarch64 */ = {
+		F2366BF92B157F1000960392 /* x86 */ = {
 			isa = PBXGroup;
 			children = (
-				43E9A5DA1D35373600926A8F /* internal.h */,
-				DBFA716C187F1D9B00A76262 /* ffi_arm64.c */,
-				DBFA716D187F1D9B00A76262 /* sysv_arm64.S */,
+				F2366BFA2B157F1000960392 /* internal.h */,
+				F2366BFB2B157F1000960392 /* sysv_i386.S */,
+				F2366BFC2B157F1000960392 /* ffi64_x86_64.c */,
+				F2366BFD2B157F1000960392 /* ffiw64_x86_64.c */,
+				F2366BFE2B157F1000960392 /* win64_x86_64.S */,
+				F2366BFF2B157F1000960392 /* asmnames.h */,
+				F2366C002B157F1000960392 /* ffi_i386.c */,
+				F2366C012B157F1000960392 /* unix64_x86_64.S */,
+				F2366C022B157F1000960392 /* internal64.h */,
 			);
-			path = aarch64;
+			path = x86;
 			sourceTree = "<group>";
 		};
-		DBFA716E187F1D9B00A76262 /* arm */ = {
+		F2366C032B157F1000960392 /* arm */ = {
 			isa = PBXGroup;
 			children = (
-				43E9A5DB1D35374400926A8F /* internal.h */,
-				DBFA716F187F1D9B00A76262 /* ffi_armv7.c */,
-				DBFA7170187F1D9B00A76262 /* sysv_armv7.S */,
+				F2366C042B157F1000960392 /* sysv_armv7.S */,
+				F2366C052B157F1000960392 /* internal.h */,
+				F2366C062B157F1000960392 /* ffi_armv7.c */,
 			);
 			path = arm;
 			sourceTree = "<group>";
 		};
-		DBFA7172187F1D9B00A76262 /* x86 */ = {
+		F2366C072B157F1000960392 /* aarch64 */ = {
 			isa = PBXGroup;
 			children = (
-				43E9A5DC1D35375400926A8F /* internal.h */,
-				43E9A5DD1D35375400926A8F /* internal64.h */,
-				DBFA7175187F1D9B00A76262 /* ffi64_x86_64.c */,
-				43B5D3F71D35473200D1E1FD /* ffiw64_x86_64.c */,
-				DBFA7176187F1D9B00A76262 /* ffi_i386.c */,
-				43E9A5C51D352C1500926A8F /* sysv_i386.S */,
-				43E9A5C61D352C1500926A8F /* unix64_x86_64.S */,
-				43B5D3F91D3547CE00D1E1FD /* win64_x86_64.S */,
+				F2366C082B157F1000960392 /* internal.h */,
+				F2366C092B157F1000960392 /* sysv_arm64.S */,
+				F2366C0A2B157F1000960392 /* ffi_arm64.c */,
 			);
-			path = x86;
+			path = aarch64;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +253,29 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2366C0F2B157F1000960392 /* ffi.h in Headers */,
+				F2366C1F2B157F1000960392 /* fficonfig_i386.h in Headers */,
+				F2366C0D2B157F1000960392 /* fficonfig.h in Headers */,
+				F2366C222B157F1000960392 /* ffi_armv7.h in Headers */,
+				F2366C202B157F1000960392 /* fficonfig_armv7.h in Headers */,
+				F2366C182B157F1000960392 /* ffitarget_arm64.h in Headers */,
+				F2366C192B157F1000960392 /* ffi_i386.h in Headers */,
+				F2366C232B157F1000960392 /* ffi_arm64.h in Headers */,
+				F2366C0B2B157F1000960392 /* ffitarget.h in Headers */,
+				F2366C0C2B157F1000960392 /* ffi_common.h in Headers */,
+				F2366C212B157F1000960392 /* fficonfig_arm64.h in Headers */,
+				F2366C1A2B157F1000960392 /* ffitarget_x86_64.h in Headers */,
+				F2366C1D2B157F1000960392 /* ffitarget_i386.h in Headers */,
+				F2366C1E2B157F1000960392 /* fficonfig_x86_64.h in Headers */,
+				F2366C0E2B157F1000960392 /* ffi_cfi.h in Headers */,
+				F2366C1B2B157F1000960392 /* ffitarget_armv7.h in Headers */,
+				F2366C1C2B157F1000960392 /* ffi_x86_64.h in Headers */,
+				F2366C332B15800800960392 /* libffi-umbrella.h in Headers */,
+				F2366C242B157F1000960392 /* internal.h in Headers */,
+				F2366C2C2B157F1000960392 /* internal64.h in Headers */,
+				F2366C302B157F1000960392 /* internal.h in Headers */,
+				F2366C292B157F1000960392 /* asmnames.h in Headers */,
+				F2366C2E2B157F1000960392 /* internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +347,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2366C102B157F1000960392 /* closures.c in Sources */,
+				F2366C122B157F1000960392 /* debug.c in Sources */,
+				F2366C142B157F1000960392 /* dlmalloc.c in Sources */,
+				F2366C172B157F1000960392 /* Empty.swift in Sources */,
+				F2366C262B157F1000960392 /* ffi64_x86_64.c in Sources */,
+				F2366C322B157F1000960392 /* ffi_arm64.c in Sources */,
+				F2366C2F2B157F1000960392 /* ffi_armv7.c in Sources */,
+				F2366C2A2B157F1000960392 /* ffi_i386.c in Sources */,
+				F2366C272B157F1000960392 /* ffiw64_x86_64.c in Sources */,
+				F2366C152B157F1000960392 /* java_raw_api.c in Sources */,
+				F2366C112B157F1000960392 /* prep_cif.c in Sources */,
+				F2366C162B157F1000960392 /* raw_api.c in Sources */,
+				F2366C252B157F1000960392 /* sysv_i386.S in Sources */,
+				F2366C2D2B157F1000960392 /* sysv_armv7.S in Sources */,
+				F2366C312B157F1000960392 /* sysv_arm64.S in Sources */,
+				F2366C132B157F1000960392 /* types.c in Sources */,
+				F2366C2B2B157F1000960392 /* unix64_x86_64.S in Sources */,
+				F2366C282B157F1000960392 /* win64_x86_64.S in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
