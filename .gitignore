@@ -35,3 +35,4 @@ Build
 xcuserdata
 Pods
 !Sources/**/*
+.DS_Store
