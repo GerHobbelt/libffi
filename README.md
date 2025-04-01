@@ -1,7 +1,7 @@
 Status
 ======
 
-libffi-3.4.4 was released on October 23, 2022.  Check the libffi web
+libffi-3.4.7 was released on February 8, 2025.  Check the libffi web
 page for updates: <URL:http://sourceware.org/libffi/>.
 
 
@@ -76,7 +76,6 @@ tested:
 | MIPS            | RTEMS            | GCC                     |
 | MIPS64          | Linux            | GCC                     |
 | Moxie           | Bare metal       | GCC                     |
-| Nios II         | Linux            | GCC                     |
 | OpenRISC        | Linux            | GCC                     |
 | PowerPC 32-bit  | AIX              | GCC                     |
 | PowerPC 32-bit  | AIX              | IBM XL C                |
@@ -158,7 +157,7 @@ It's also possible to build libffi on Windows platforms with
 Microsoft's Visual C++ compiler.  In this case, use the msvcc.sh
 wrapper script during configuration like so:
 
-    path/to/configure CC=path/to/msvcc.sh CXX=path/to/msvcc.sh LD=link CPP="cl -nologo -EP" CPPFLAGS="-DFFI_BUILDING_DLL"
+    path/to/configure CC=path/to/msvcc.sh CXX=path/to/msvcc.sh LD=link CPP="cl -nologo -EP" CXXCPP="cl -nologo -EP" CPPFLAGS="-DFFI_BUILDING_DLL"
 
 For 64-bit Windows builds, use ``CC="path/to/msvcc.sh -m64"`` and
 ``CXX="path/to/msvcc.sh -m64"``.  You may also need to specify
@@ -201,12 +200,26 @@ History
 
 See the git log for details at http://github.com/libffi/libffi.
 
-    TBD - TBD
+    3.4.7 Feb-8-2024
+        Add static trampoline support for Linux on s390x.
+        Fix BTI support for ARM64.
+        Support pointer authentication for ARM64.
+        Fix ASAN compatibility.
+        Fix x86-64 calls with 6 GP registers and some SSE registers.
+        Miscellaneous fixes for ARC and Darwin ARM64.
+        Fix OpenRISC or1k and Solaris 10 builds.
+        Remove nios2 port.
+
+    3.4.6 Feb-18-2024
+        Fix long double regression on mips64 and alpha.
+
+    3.4.5 Feb-15-2024
         Add support for wasm32.
         Add support for aarch64 branch target identification (bti).
         Add support for ARCv3: ARC32 & ARC64.
         Add support for HPPA64, and many HPPA fixes.
-        Fixes for AIX, sparc64, and x86 Darwin fixes.
+        Add support for Haikuos on PowerPC.
+        Fixes for AIX, loongson, MIPS, power, sparc64, and x86 Darwin.
 
     3.4.4 Oct-23-2022
         Important aarch64 fixes, including support for linux builds
