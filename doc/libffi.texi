@@ -18,7 +18,7 @@
 This manual is for libffi, a portable foreign function interface
 library.
 
-Copyright @copyright{} 2008--2019, 2021, 2022 Anthony Green and Red Hat, Inc.
+Copyright @copyright{} 2008--2024 Anthony Green and Red Hat, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -263,14 +263,14 @@ int main()
 		       &ffi_type_sint, args) == FFI_OK)
     @{
       s = "Hello World!";
-      ffi_call(&cif, puts, &rc, values);
+      ffi_call(&cif, (void(*)())puts, &rc, values);
       /* rc now holds the result of the call to puts */
 
       /* values holds a pointer to the function's arg, so to
          call puts() again all we need to do is change the
          value of s */
       s = "This is cool!";
-      ffi_call(&cif, puts, &rc, values);
+      ffi_call(&cif, (void(*)())puts, &rc, values);
     @}
 
   return 0;
@@ -627,7 +627,7 @@ Here is the corresponding code to describe this struct to
 
       tm_type.size = tm_type.alignment = 0;
       tm_type.type = FFI_TYPE_STRUCT;
-      tm_type.elements = &tm_type_elements;
+      tm_type.elements = tm_type_elements;
 
       for (i = 0; i < 9; i++)
           tm_type_elements[i] = &ffi_type_sint;
