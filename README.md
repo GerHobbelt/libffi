@@ -1,7 +1,7 @@
 Status
 ======
 
-libffi-3.4.8 was released on April 9, 2025.  Check the libffi web
+libffi-3.5.0-rc0 was released on June 2, 2025.  Check the libffi web
 page for updates: <URL:http://sourceware.org/libffi/>.
 
 
@@ -135,7 +135,7 @@ compiler.
 
 If you're building libffi directly from git hosted sources, configure
 won't exist yet; run ./autogen.sh first.  This will require that you
-install autoconf, automake and libtool.
+install autoconf, automake, libtool and texinfo.
 
 You may want to tell configure where to install the libffi library and
 header files. To do that, use the ``--prefix`` configure switch.  Libffi
@@ -199,6 +199,12 @@ History
 =======
 
 See the git log for details at http://github.com/libffi/libffi.
+
+    Next Version TBD
+        Add FFI_VERSION_STRING and FFI_VERSION_NUMBER macros, as well
+          as ffi_get_version() and ffi_get_version_number() functions.
+        Fix closures on powerpc64-linux when statically linking.
+        Mark the PA stack as non-executable.
 
     3.4.8 Apr-9-2025
         Add static trampoline support for powerpc-linux (32-bit SYSV BE),
