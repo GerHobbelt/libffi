@@ -1,12 +1,12 @@
 dnl Process this with autoconf to create configure
 
-AC_PREREQ([2.72])
+AC_PREREQ([2.68])
 
-AC_INIT([libffi],[3.5.0],[http://github.com/libffi/libffi/issues])
+AC_INIT([libffi],[3.5.1-dev],[http://github.com/libffi/libffi/issues])
 AC_CONFIG_HEADERS([fficonfig.h])
 
-FFI_VERSION_STRING="3.5.0"
-FFI_VERSION_NUMBER=30500
+FFI_VERSION_STRING="3.5.1-dev"
+FFI_VERSION_NUMBER=30501
 AC_SUBST(FFI_VERSION_STRING)
 AC_SUBST(FFI_VERSION_NUMBER)
 
@@ -94,10 +94,6 @@ m4_warn([obsolete],
 [The preprocessor macro `STDC_HEADERS' is obsolete.
   Except in unusual embedded environments, you can safely include all
   ISO C90 headers unconditionally.])dnl
-# Autoupdate added the next two lines to ensure that your configure
-# script's behavior did not change.  They are probably safe to remove.
-AC_CHECK_INCLUDES_DEFAULT
-AC_PROG_EGREP
 
 AC_CHECK_FUNCS(memcpy)
 AC_CHECK_HEADERS(alloca.h)
