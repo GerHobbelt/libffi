@@ -800,6 +800,8 @@ allocate_space (int fd, off_t len)
   /* Obtain system page size. */
   if (!page_size)
     page_size = sysconf(_SC_PAGESIZE);
+  if (page_size <= 0)
+    return -1;
 
   unsigned char buf[page_size];
   memset (buf, 0, page_size);
