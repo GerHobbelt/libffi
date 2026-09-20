@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-   ffi64.c - Copyright (c) 2011, 2018, 2022  Anthony Green
+   ffi64.c - Copyright (c) 2011, 2018, 2022, 2026  Anthony Green
              Copyright (c) 2013  The Written Word, Inc.
              Copyright (c) 2008, 2010  Red Hat, Inc.
              Copyright (c) 2002, 2007  Bo Thorsen <bo@suse.de>
@@ -1078,11 +1078,13 @@ void
 ffi_call (ffi_cif *cif, void (*fn)(void), void *rvalue, void **avalue)
 {
   ffi_type **arg_types = cif->arg_types;
+  void **avalue_copy = NULL;
   int i, nargs = cif->nargs;
   const int max_reg_struct_size = cif->abi == FFI_GNUW64 ? 8 : 16;
 
   /* If we have any large structure arguments, make a copy so we are passing
-     by value.  */
+     by value.  The pointer array is cloned first: the caller owns avalue[]
+     and may reuse it for another call, so it must not be modified.  */
   for (i = 0; i < nargs; i++)
     {
       ffi_type *at = arg_types[i];
@@ -1090,6 +1092,12 @@ ffi_call (ffi_cif *cif, void (*fn)(void), void *rvalue, void **avalue)
       if (at->type == FFI_TYPE_STRUCT && size > max_reg_struct_size)
         {
           char *argcopy = alloca (size);
+          if (avalue_copy == NULL)
+            {
+              avalue_copy = alloca (nargs * sizeof (void *));
+              memcpy (avalue_copy, avalue, nargs * sizeof (void *));
+              avalue = avalue_copy;
+            }
           memcpy (argcopy, avalue[i], size);
           avalue[i] = argcopy;
         }
@@ -1277,7 +1285,7 @@ ffi_closure_unix64_inner(ffi_cif *cif,
       /* Otherwise, allocate space to make them consecutive.  */
       else
 	{
-	  char *a = alloca (16);
+	  char *a = alloca (n * 8);
 	  unsigned int j;
 
 	  avalue[i] = a;
