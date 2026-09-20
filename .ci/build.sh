@@ -59,6 +59,25 @@ function build_cross()
     exit $?
 }
 
+# Cross-compile on the host with a Debian cross toolchain and run the tests
+# under qemu-user (binfmt).  Used for big-endian PowerPC variants, which have
+# no ready foreign-arch container image.  Expects ${HOST}-gcc / ${HOST}-g++ and
+# qemu-user-static to be installed, plus the target sysroot at /usr/${HOST}.
+function build_cross_qemu()
+{
+    # Export the sysroot so qemu-user (invoked via binfmt when the test
+    # binaries run) finds the target dynamic loader; otherwise every execution
+    # test fails with "Could not open '/lib/ld.so.1'".
+    export QEMU_LD_PREFIX=/usr/${HOST}
+    ./configure --host=$HOST CC="${HOST}-gcc ${GCC_OPTIONS}" CXX="${HOST}-g++ ${GCC_OPTIONS}" --disable-shared || cat */config.log
+    make
+    DEJAGNU=$(pwd)/.ci/site.exp BOARDSDIR=$(pwd)/.ci \
+        make check RUNTESTFLAGS="-a $RUNTESTFLAGS" || true
+
+    ./rlgl e -l project=libffi -l sha=${GITHUB_SHA:0:7} -l CC="${HOST}-gcc" -l host=$HOST --policy=https://github.com/libffi/rlgl-policy.git */testsuite/libffi.log
+    exit $?
+}
+
 function build_ios()
 {
     which python
@@ -79,6 +98,27 @@ function build_macosx()
     echo "Finished build"
     exit $?
 }
+
+# QEMU jobs select their build method by env var (set in the workflow), which
+# avoids fragile HOST-triple glob matching:
+#   FOREIGN_IMAGE -> native build+test inside a QEMU-run foreign-arch container
+#   CROSS_QEMU    -> cross-compile + run tests under qemu-user (binfmt)
+if [ -n "${FOREIGN_IMAGE:-}" ]; then
+    ./autogen.sh
+    build_foreign_linux "$HOST" "$FOREIGN_IMAGE"
+fi
+if [ -n "${CROSS_QEMU:-}" ]; then
+    ./autogen.sh
+    build_cross_qemu
+fi
+# MACOS_X86 -> build x86_64 (CC="clang -arch x86_64", HOST=x86_64-apple-darwin)
+# on an Apple-Silicon runner and run the tests under Rosetta.  Uses build_linux
+# (dejagnu + rlgl), bypassing the legacy xcodebuild build_macosx path that the
+# x86_64-apple-darwin* case below would otherwise select.
+if [ -n "${MACOS_X86:-}" ]; then
+    ./autogen.sh
+    build_linux
+fi
 
 case "$HOST" in
     arm-apple-darwin*)
@@ -112,11 +152,6 @@ case "$HOST" in
     m68k-linux-gnu )
 	      ./autogen.sh
 	      GCC_OPTIONS=-mcpu=547x build_cross_linux
-	      ;;
-    powerpc64le-*-linux-gnu | ppc64le-*-linux-gnu )
-	      # Emulated big/foreign-arch native build inside a QEMU-run container.
-	      ./autogen.sh
-	      build_foreign_linux ppc64le "${FOREIGN_IMAGE:?set FOREIGN_IMAGE to the foreign-arch container image}"
 	      ;;
     alpha-linux-gnu | sh4-linux-gnu )
 	      ./autogen.sh

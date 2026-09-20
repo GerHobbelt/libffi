@@ -70,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: rlgl-report-${{ github.job }}-${{ strategy.job-index }}
-          path: rlgl-report.html
+          path: rlgl-report*
           if-no-files-found: ignore
 
       - name: rlgl report link
@@ -84,7 +84,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-13, macos-14, macos-15]
+        platform: [macos-14, macos-15]
         compilers: [CC=gcc-15 CXX=g++-15, CC=clang CXX=g++-15]
 
     steps:
@@ -92,6 +92,37 @@ jobs:
       - uses: actions/checkout@v4
       - run: ./.ci/install.sh
       - run: ${{ matrix.compilers }} ./.ci/build.sh
+
+  # ----------------------------------------------------------------------------
+  # x86_64 macOS coverage without an Intel runner: build x86_64 on an
+  # Apple-Silicon runner (clang -arch x86_64) and run the testsuite under
+  # Rosetta 2.  Exercises libffi's x86_64 calling-convention paths.
+  build-macos-x86:
+    name: MacOS x86_64 (Rosetta)
+    runs-on: macos-14
+    steps:
+      - run: git config --global core.autocrlf input
+      - uses: actions/checkout@v4
+      - name: Install Rosetta 2
+        run: softwareupdate --install-rosetta --agree-to-license || true
+      - run: ./.ci/install.sh
+      - name: Build x86_64 and test under Rosetta
+        env:
+          MACOS_X86: "1"
+          HOST: x86_64-apple-darwin
+          CC: clang -arch x86_64
+          CXX: clang++ -arch x86_64
+        run: ./.ci/build.sh
+      - name: Upload rlgl report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rlgl-report-${{ github.job }}
+          path: rlgl-report*
+          if-no-files-found: ignore
+      - name: rlgl report link
+        if: always()
+        run: echo "::notice title=rlgl report::https://libffi.github.io/libffi/reports/${{ github.run_id }}/${{ github.job }}/"
 
   build-non-msvc:
     name: Windows ${{ matrix.width }}-bit ${{ matrix.compiler }}
@@ -196,7 +227,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: rlgl-report-${{ github.job }}-${{ strategy.job-index }}
-          path: rlgl-report.html
+          path: rlgl-report*
           if-no-files-found: ignore
 
       - name: rlgl report link
@@ -285,7 +316,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: rlgl-report-${{ github.job }}-${{ strategy.job-index }}
-          path: rlgl-report.html
+          path: rlgl-report*
           if-no-files-found: ignore
 
       - name: rlgl report link
@@ -370,11 +401,24 @@ jobs:
     steps:
       - run: git config --global core.autocrlf input
       - uses: actions/checkout@v4
+      # Register qemu-user binfmt for the cross-built aarch64/armv7 test
+      # binaries only. We deliberately do NOT register x86_64/i686 handlers:
+      # the x86 Android binaries are native and must run directly on the host.
+      # Otherwise tonistiigi/binfmt's default "--install all" routes them
+      # through qemu-x86_64, whose x87 80-bit long double emulation is
+      # inaccurate and fails all the long double tests.
+      - name: Set up QEMU (binfmt)
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64,arm
       - run: ./.ci/install.sh
       - env:
           HOST: ${{ matrix.HOST }}
           ANDROID_API_LEVEL: 23
           CONFIGURE_OPTIONS: "--disable-shared --disable-multi-os-directory" # fixes warning about unsupported -print-multi-os-directory with clang
+          # Link tests statically so they need no bionic loader/sysroot at run
+          # time, then they execute directly (x86) or under qemu-user (arm).
+          RUNTESTFLAGS: "--target_board=unix/-static"
         run: |
           # Relevant documentation:
           # https://developer.android.com/ndk/guides/other_build_systems
@@ -398,7 +442,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: rlgl-report-${{ github.job }}-${{ strategy.job-index }}
-          path: rlgl-report.html
+          path: rlgl-report*
           if-no-files-found: ignore
 
       - name: rlgl report link
@@ -422,6 +466,18 @@ jobs:
             docker_arch: ppc64le
             image: libffi-ci-ppc64le
             containerfile: .ci/Containerfile.ppc64le
+          - HOST: s390x-unknown-linux-gnu
+            docker_arch: s390x
+            image: libffi-ci-s390x
+            containerfile: .ci/Containerfile.s390x
+          - HOST: riscv64-unknown-linux-gnu
+            docker_arch: riscv64
+            image: libffi-ci-riscv64
+            containerfile: .ci/Containerfile.debian
+          - HOST: arm-unknown-linux-gnueabihf
+            docker_arch: arm/v7
+            image: libffi-ci-armv7
+            containerfile: .ci/Containerfile.debian
     steps:
       - uses: actions/checkout@v4
 
@@ -447,7 +503,46 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: rlgl-report-${{ github.job }}-${{ strategy.job-index }}
-          path: rlgl-report.html
+          path: rlgl-report*
+          if-no-files-found: ignore
+
+      - name: rlgl report link
+        if: always()
+        run: echo "::notice title=rlgl report::https://libffi.github.io/libffi/reports/${{ github.run_id }}/${{ github.job }}-${{ strategy.job-index }}/"
+
+  # ----------------------------------------------------------------------------
+  # Big-endian PowerPC variants have no ready foreign-arch container image, so
+  # cross-compile with a Debian cross toolchain and run the testsuite under
+  # qemu-user (binfmt).  rlgl evaluates on the host.  Add a matrix entry (HOST +
+  # the gcc-<HOST> package, installed by install.sh) to cover more such targets.
+  build-cross-qemu:
+    name: QEMU-cross ${{ matrix.HOST }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - HOST: powerpc64-linux-gnu
+          - HOST: powerpc-linux-gnu
+          - HOST: sparc64-linux-gnu
+          - HOST: mips64el-linux-gnuabi64
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build and test under qemu-user
+        env:
+          HOST: ${{ matrix.HOST }}
+          CROSS_QEMU: "1"
+        run: |
+          ./.ci/install.sh
+          ./.ci/build.sh
+
+      - name: Upload rlgl report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rlgl-report-${{ github.job }}-${{ strategy.job-index }}
+          path: rlgl-report*
           if-no-files-found: ignore
 
       - name: rlgl report link
@@ -461,7 +556,7 @@ jobs:
   # concurrency group.  Only runs for pushes to the canonical repo.
   publish-reports:
     name: Publish rlgl reports
-    needs: [build-linux, build-non-msvc, build-msvc, build-android, build-qemu]
+    needs: [build-linux, build-non-msvc, build-msvc, build-android, build-qemu, build-cross-qemu, build-macos-x86]
     if: ${{ always() && github.event_name != 'pull_request' && github.repository == 'libffi/libffi' }}
     runs-on: ubuntu-latest
     permissions:
@@ -506,6 +601,9 @@ jobs:
             if [ -f "${d}rlgl-report.html" ]; then
               mkdir -p "$run_dir/$key"
               cp "${d}rlgl-report.html" "$run_dir/$key/index.html"
+              # Publish the original report next to it so the report's
+              # "Original Report" link (rlgl-report-original.*) resolves.
+              cp "${d}"rlgl-report-original.* "$run_dir/$key/" 2>/dev/null || true
             fi
           done
           {

@@ -43,6 +43,12 @@ else
     sudo apt-get update
     sudo apt install libltdl-dev zip
 
+    # Cross + qemu-user targets: install the Debian cross toolchain for $HOST
+    # and qemu-user-static (registers binfmt so test binaries run emulated).
+    if [ -n "${CROSS_QEMU:-}" ]; then
+        sudo apt-get install -y gcc-${HOST} g++-${HOST} qemu-user-static
+    fi
+
     case $HOST in
 	      mips64el-linux-gnu | sparc64-linux-gnu)
         ;;
