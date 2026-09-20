@@ -1,7 +1,7 @@
 Status
 ======
 
-This is WIP repo for what will eventually become libffi-3.6.0.
+libffi-3.6.0 was released on June 20, 2026.
 
 
 What is libffi?
@@ -203,7 +203,13 @@ History
 
 See the git log for details at http://github.com/libffi/libffi.
 
-    3.6.0 ???
+    3.7.0 TBD
+        Add reusable call plans (ffi_call_plan_alloc/ffi_call_plan_invoke/ffi_call_plan_free).
+        Fix PA-RISC build broken by the conditional __int128 support added in 3.6.0.
+        Fix PA-RISC stack overflow passing many small structs by value.
+        Fix powerpc aix/darwin closure build errors (#987).
+
+    3.6.0 Jun-20-2026
         Add LoongArch32 support.
         Add RISC-V static trampoline support.
         Add aarch64 GCS (Guarded Control Stack) support.
@@ -211,6 +217,7 @@ See the git log for details at http://github.com/libffi/libffi.
         Add ppc64le ELFv2 complex type support.
         Add conditional target support for __int128.
         Add x86_64 IEEE binary128 long double support (e.g. x86_64 Android).
+        Update bundled dlmalloc to upstream 2.8.6.
         Fix closures using FFI_REGISTER ABI.
         Fix SH linker errors with __USER_LABEL_PREFIX__.
         Fix compilation for ARM Windows targets.
@@ -219,6 +226,7 @@ See the git log for details at http://github.com/libffi/libffi.
         Fix x86 ASAN compatibility for win64.
         Fix clang -Werror-semi builds on riscv, or1k, loongarch.
         Fix NULL deref in dlmalloc sys_trim on heap corruption.
+        Fix ThreadSanitizer data race in dlmalloc mparams init (#873).
         Define WIN32_LEAN_AND_MEAN before including windows.h.
         Fix comments that trip up some toolchains.
 

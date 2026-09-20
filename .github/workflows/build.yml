@@ -5,6 +5,9 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
+    # Run on release tags too, so the MSVC job's "Upload to GitHub Release"
+    # step (gated on github.ref_type == 'tag') publishes the Windows binaries.
+    tags: [ 'v[0-9]*' ]
   pull_request:
     branches: [ master ]
 
@@ -221,14 +224,7 @@ jobs:
           # sanity-check
           file */.libs/*ffi-*.dll
 
-          # mingw-w64 gcc/clang default to the MS C runtime printf, where the
-          # %L length modifier means double, not long double -- so every long
-          # double test trips -Wformat and dejagnu fails it as "excess errors".
-          # __USE_MINGW_ANSI_STDIO selects mingw's ISO-C99 printf, where %Lf/%Lg
-          # handle long double correctly (fixing both the warning and runtime
-          # output). It's a no-op on the Cygwin targets.
-          TERM=none DEJAGNU=$(pwd)/.ci/site.exp BOARDSDIR=$(pwd)/.ci GCC_COLORS= \
-            make check RUNTESTFLAGS="TOOL_OPTIONS=-D__USE_MINGW_ANSI_STDIO=1" || true
+          TERM=none DEJAGNU=$(pwd)/.ci/site.exp BOARDSDIR=$(pwd)/.ci GCC_COLORS= make check || true
           ./rlgl.exe e \
                           -l project=libffi \
                           -l sha=${GITHUB_SHA:0:7} \
@@ -397,10 +393,21 @@ jobs:
           path: libffi-${{ steps.ver.outputs.version }}-x86-${{ matrix.width }}bit-msvc-binaries
           if-no-files-found: error
 
+      # The binary distribution above is a directory; zip it so the release
+      # upload has an actual .zip file to attach (its contents at top level,
+      # matching the upload-artifact layout).
+      - name: Package binary distribution as zip
+        if: github.ref_type == 'tag'
+        shell: pwsh
+        run: |
+          $d = "libffi-${{ steps.ver.outputs.version }}-x86-${{ matrix.width }}bit-msvc-binaries"
+          Compress-Archive -Path "$d/*" -DestinationPath "$d.zip" -Force
+
       - name: Upload to GitHub Release
         if: github.ref_type == 'tag'
         uses: softprops/action-gh-release@v2
         with:
+          fail_on_unmatched_files: true
           files: libffi-${{ steps.ver.outputs.version }}-x86-${{ matrix.width }}bit-msvc-binaries.zip
 
   build-android:
@@ -540,6 +547,9 @@ jobs:
           - HOST: powerpc-linux-gnu
           - HOST: sparc64-linux-gnu
           - HOST: mips64el-linux-gnuabi64
+          # PA-RISC 32-bit (FFI_PA32): exercises the struct-by-value
+          # marshalling regression in testsuite/libffi.call/many_small_structs.c.
+          - HOST: hppa-linux-gnu
     steps:
       - uses: actions/checkout@v4
 

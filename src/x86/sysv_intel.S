@@ -775,6 +775,10 @@ EHFrame0:
 
 #ifdef HAVE_AS_X86_PCREL
 # define PCREL(X)	X - .
+#elif defined(__clang__)
+/* clang's integrated assembler rejects the X@rel variant (#947); the
+   pc-relative label difference works wherever @rel would.  */
+# define PCREL(X)	X - .
 #else
 # define PCREL(X)	X@rel
 #endif
@@ -988,7 +992,7 @@ L(EFDE9):
 #endif /* ifndef _MSC_VER */
 #endif /* ifndef __x86_64__ */
 
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || defined __FreeBSD__)
 	.section	.note.GNU-stack,"",@progbits
 #endif
 #endif
